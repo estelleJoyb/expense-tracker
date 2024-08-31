@@ -6,6 +6,7 @@ import { TransactionService } from '../../services/transaction.service';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { concatMap } from 'rxjs';
 @Component({
   selector: 'app-transactionsform',
   standalone: true,
@@ -20,10 +21,13 @@ export class TransactionsformComponent {
   constructor(private transactionService: TransactionService){}
 
   public addTransaction(): void {
-    this.transactionService.addTransaction(this.description, this.amount, this.category).subscribe((res) => {
-      console.log("add transaction ", res);
-      //this.authService.setToken(res);
-      //this.router.navigate(['/transactions']);
-    });
+    //use of concatMap from rxjs to sum the results of the two Observable and concat them in an unique observable
+    this.transactionService.addTransaction(this.description, this.amount, this.category)
+      .pipe(
+        concatMap(() => this.transactionService.getTransaction()) 
+      )
+      .subscribe((res) => {
+        this.transactionService.setTransactions(res); 
+      });
   }
 }

@@ -23,29 +23,55 @@ exports.addTransaction = async (req, res) => {
 exports.getTransactions = async (req, res) => {
   try {
     const transactions = await Transaction.findAll({
-      where: { UserId: req.user.id },  // Utilisez 'UserId' au lieu de 'user'
-      order: [['date', 'DESC']],       // Trie par date décroissante
+      where: { UserId: req.user.id }, 
+      order: [['date', 'DESC']],  //to have the most recent fist
     });
     res.json(transactions);
   } catch (err) {
-    console.error('Error in getTransactions:', err);  // Ajouter un log pour l'erreur
+    console.error('Error in getTransactions:', err);  
     res.status(500).send('Server error');
   }
 };
 
+exports.updateTransaction = async (req, res) => {
+  const { description, amount, category } = req.body;
 
-exports.deleteTransaction = async (req, res) => {
   try {
-    const transaction = await Transaction.findById(req.params.id);
+    const transaction = await Transaction.findByPk(req.params.id);
 
     if (!transaction) {
       return res.status(404).json({ msg: 'Transaction not found' });
     }
 
-    await transaction.remove();
+    if (transaction.UserId !== req.user.id) {
+      return res.status(401).json({ msg: 'Not authorized' });
+    }
+
+    // update values
+    transaction.description = description || transaction.description;
+    transaction.amount = amount || transaction.amount;
+    transaction.category = category || transaction.category;
+    await transaction.save();
+
+    res.json(transaction);
+  } catch (err) {
+    console.error('Error in updateTransaction:', err);
+    res.status(500).send('Server error');
+  }
+};
+
+exports.deleteTransaction = async (req, res) => {
+  try {
+    const transaction = await Transaction.findByPk(req.params.id);
+
+    if (!transaction) {
+      return res.status(404).json({ msg: 'Transaction not found' });
+    }
+
+    await transaction.destroy();
     res.json({ msg: 'Transaction removed' });
   } catch (err) {
-    console.error('Error in deleteTransaction:', err);  // Ajouter un log pour l'erreur
+    console.error('Error in deleteTransaction:', err);
     res.status(500).send('Server error');
   }
 };
