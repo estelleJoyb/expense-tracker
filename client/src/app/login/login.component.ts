@@ -27,7 +27,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
   username: string = '';
   password: string = '';
-  rememberMe: boolean = false;
+
 
   constructor(private authService: AuthService, private router: Router) {}
 

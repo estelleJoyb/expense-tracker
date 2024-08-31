@@ -15,13 +15,6 @@
               <input id="password" type="password" pInputText [(ngModel)]="password" name="password"/>
               <label for="password">Mot de passe</label>
           </p-floatLabel>
-          <div class="form_options">
-            <p-checkbox 
-              [binary]="true" 
-              inputId="binary"
-              label="Se souvenir de moi" [(ngModel)]="rememberMe" name="rememberMe"/>
-            <p-button label="Mot de passe oublié ?" [link]="true"/>
-          </div>
           <button type="submit">CONNEXION</button>
         </form>
         <p>Vous n'avez pas de compte ? <a class="link" href="/signup">Inscrivez-vous</a></p>
