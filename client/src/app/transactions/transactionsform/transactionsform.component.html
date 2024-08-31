@@ -1,1 +1,17 @@
-<p>transactionsform works!</p>
+  <form class="transactionform" (ngSubmit)="addTransaction()">
+    <p-floatLabel>
+      <input id="description" type="text" pInputText [(ngModel)]="description" name="description" [ngModelOptions]="{standalone: true}"/>
+      <label for="description">Description</label>
+    </p-floatLabel>
+    <br>
+    <p-floatLabel>
+        <p-inputNumber [(ngModel)]="amount" [ngModelOptions]="{standalone: true}" mode="decimal"></p-inputNumber>
+        <label for="amount">Montant</label>
+      </p-floatLabel>
+      <br>
+      <p-floatLabel>
+        <input id="category" type="text" pInputText [(ngModel)]="category" [ngModelOptions]="{standalone: true}" name="category"/>
+        <label for="category">Catégorie</label>
+      </p-floatLabel>
+      <button type="submit">Créer</button>
+  </form>

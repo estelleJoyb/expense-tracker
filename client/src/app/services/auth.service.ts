@@ -2,20 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
+//import { jwtDecode } from "jwt-decode";
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private isAuthenticated = false;
   private token : string = "";
-  private apiUrl = 'http://localhost:5000/api/auth/'; // URL de votre API
+  private apiUrl = 'http://localhost:5000/api/auth/'; 
 
   constructor(private http: HttpClient) { }
 
-  public setToken(t : string){
+  // private getDecodedAccessToken(token: string): any {
+  //   try {
+  //     return jwtDecode(token);
+  //   } catch(Error) {
+  //     return null;
+  //   }
+  // }
+
+//   public getUserId(): number{
+//   var decodedToken = this.getDecodedAccessToken(this.token);
+//   var userId = decodedToken.user.id;
+//  return userId;
+//   }
+
+  public setToken(t : any){
     this.isAuthenticated = true;
-    this.token = t;
+    this.token = t.token;
   }
 
   public getToken(): string {

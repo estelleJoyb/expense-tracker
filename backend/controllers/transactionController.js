@@ -5,29 +5,34 @@ exports.addTransaction = async (req, res) => {
 
   try {
     const transaction = new Transaction({
-      user: req.user.id,
+      UserId: req.user.id,
       description,
       amount,
       category,
+      date : new Date()
     });
 
     await transaction.save();
     res.json(transaction);
   } catch (err) {
+    console.error('Error in addTransaction:', err);  // Ajouter un log pour l'erreur
     res.status(500).send('Server error');
   }
 };
 
 exports.getTransactions = async (req, res) => {
   try {
-    const transactions = await Transaction.find({ user: req.user.id }).sort({
-      date: -1,
+    const transactions = await Transaction.findAll({
+      where: { UserId: req.user.id },  // Utilisez 'UserId' au lieu de 'user'
+      order: [['date', 'DESC']],       // Trie par date décroissante
     });
     res.json(transactions);
   } catch (err) {
+    console.error('Error in getTransactions:', err);  // Ajouter un log pour l'erreur
     res.status(500).send('Server error');
   }
 };
+
 
 exports.deleteTransaction = async (req, res) => {
   try {
@@ -40,6 +45,7 @@ exports.deleteTransaction = async (req, res) => {
     await transaction.remove();
     res.json({ msg: 'Transaction removed' });
   } catch (err) {
+    console.error('Error in deleteTransaction:', err);  // Ajouter un log pour l'erreur
     res.status(500).send('Server error');
   }
 };
