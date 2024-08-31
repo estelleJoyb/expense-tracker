@@ -1,0 +1,128 @@
+@import '../../styles';
+.app-register {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/images/background.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.register-container{
+  width: 80%;
+  height: 70%;
+  display: flex;
+}
+
+.welcome-image{
+  width: 50%;
+  margin-left: 15px;
+  background-image: url("../../assets/images/fond_login.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: -30px;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.register-form {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  padding: 3%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form_title{
+  font-size: xx-large;
+}
+
+.form_undertitle{
+  margin-top: -15px;
+  margin-bottom: 7%;
+}
+
+.form_options{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-form input[type="text"], .register-form input[type="password"], .register-form input[type="email"] {
+  width: 100%;
+  height: 45px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-form button[type="submit"] {
+  margin-top: 5%;
+  width: 95%;
+  height: 50px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.register-form button[type="submit"]:hover {
+  filter: brightness(0.9);
+}
+
+.form_or{
+  text-align: center;
+  color: #999;
+}
+
+.link{
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+}
+
+.inflex-form{
+  width: 50%;
+}
+.registerform{
+  height: 68%;
+}
+
+.floatlabel{
+  margin: 0px 0px 0px 10px;
+}
+
+.nextButton{
+  justify-content: end;
+}
+
+.alreadyAccount{
+  text-align: center;
+}
+

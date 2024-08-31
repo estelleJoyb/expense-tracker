@@ -1,0 +1,65 @@
+<div class="app-register">
+    <div class="register-container">
+      <div class="welcome-image">
+      </div>
+      <div class="register-form">
+        <h2 class="form_title">Inscription</h2>
+        <p class="form_undertitle">Veuillez-vous connecter pour continuer</p>
+        <form class="registerform" (ngSubmit)="register()">
+          <div class="flex">
+            <p-floatLabel class="inflex-form">
+              <input id="name" type="text" pInputText [(ngModel)]="user.name" name="name" />
+              <label for="name">Nom</label>
+            </p-floatLabel>
+          </div>
+          <p-floatLabel class="floatlabel">
+            <input id="email" type="email" pInputText [(ngModel)]="user.email" name="email" />
+            <label for="email">Adresse mail</label>
+          </p-floatLabel>
+          <p-floatLabel class="floatlabel">
+            <input id="password" type="password" pInputText [(ngModel)]="user.password" name="password" />
+            <label for="password">Mot de passe</label>
+          </p-floatLabel>
+          <p-floatLabel class="floatlabel">
+            <input id="repeatedPassword" type="password" pInputText [(ngModel)]="repeatedPassword" name="repeatedPassword" />
+            <label for="repeatedPassword">Répétez le mot de passe</label>
+          </p-floatLabel>
+          <button type="submit">S'INSCRIRE</button>
+        </form>
+        <p>Vous avez déjà un compte ? <a class="link" href="/login">Connectez-vous</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="app-register">
+    <div class="register-container">
+      <div class="welcome-image">
+      </div>
+      <div class="register-form">
+        <h2 class="form_title">Inscription</h2>
+        <p class="form_undertitle">Veuillez-vous connecter pour continuer</p>
+        <form class="registerform" (ngSubmit)="register()">
+          <div class="flex">
+            <p-floatLabel class="inflex-form">
+              <input id="name" type="text" pInputText [(ngModel)]="user.name" name="name" />
+              <label for="name">Nom</label>
+            </p-floatLabel>
+          </div>
+          <p-floatLabel class="floatlabel">
+            <input id="email" type="email" pInputText [(ngModel)]="user.email" name="email" />
+            <label for="email">Adresse mail</label>
+          </p-floatLabel>
+          <p-floatLabel class="floatlabel">
+            <input id="password" type="password" pInputText [(ngModel)]="user.password" name="password" />
+            <label for="password">Mot de passe</label>
+          </p-floatLabel>
+          <p-floatLabel class="floatlabel">
+            <input id="repeatedPassword" type="password" pInputText [(ngModel)]="repeatedPassword" name="repeatedPassword" />
+            <label for="repeatedPassword">Répétez le mot de passe</label>
+          </p-floatLabel>
+          <button type="submit">S'INSCRIRE</button>
+        </form>
+        <p>Vous avez déjà un compte ? <a class="link" href="/login">Connectez-vous</a></p>
+      </div>
+    </div>
+  </div>
+    

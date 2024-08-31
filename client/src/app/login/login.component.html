@@ -1,0 +1,31 @@
+<div class="app-login">
+    <div class="login-container">
+      <div class="welcome-image">
+      </div>
+      <div class="login-form">
+        <h2 class="form_title">Connexion</h2>
+        <p class="form_undertitle">Veuillez-vous connecter pour continuer</p>
+        <form class="loginform" (ngSubmit)="login()">
+          <p-floatLabel>
+            <input id="username" type="text" pInputText [(ngModel)]="username" name="username"/>
+            <label for="username">Adresse mail</label>
+          </p-floatLabel>
+          <br>
+          <p-floatLabel>
+              <input id="password" type="password" pInputText [(ngModel)]="password" name="password"/>
+              <label for="password">Mot de passe</label>
+          </p-floatLabel>
+          <div class="form_options">
+            <p-checkbox 
+              [binary]="true" 
+              inputId="binary"
+              label="Se souvenir de moi" [(ngModel)]="rememberMe" name="rememberMe"/>
+            <p-button label="Mot de passe oublié ?" [link]="true"/>
+          </div>
+          <button type="submit">CONNEXION</button>
+        </form>
+        <p>Vous n'avez pas de compte ? <a class="link" href="/signup">Inscrivez-vous</a></p>
+      </div>
+    </div>
+  </div>
+  
