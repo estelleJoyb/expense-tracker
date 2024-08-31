@@ -5,5 +5,8 @@ créer une bdd mysql ainsi qu'un utilisateur et mettre les variables de connexio
 node ./backend/server.js
 
 
-## pour lancer le frontend (angular js): 
+## pour lancer le frontend (angular js avec Primeng pour le style): 
 deans le dossier client : ng serve
+
+## info
+les mots de passes sont hashés et l'application utilise un token JWT pour l'authentification.
